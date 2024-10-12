@@ -4,6 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee List</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const employees = [
+            { name: "John Ching", title: "HR Manager", department: "HR", email: "john.ching@gmail.com", phone: "555-1234", address: "123 Main St" },
+            { name: "Jane Smith", title: "Marketing Lead", department: "Marketing", email: "jane.smith@gmail.com", phone: "555-5678", address: "456 Oak Ave" },
+            { name: "Sam Johnson", title: "Sales Executive", department: "Sales", email: "sam.johnson@gmail.com", phone: "555-8765", address: "789 Pine Rd" },
+            { name: "Emily Davis", title: "Accountant", department: "Finance", email: "emily.davis@gmail.com", phone: "555-4321", address: "101 Maple St" },
+            { name: "Michael Brown", title: "Software Developer", department: "IT", email: "michaelbrown@gmail.com", phone: "555-0987", address: "202 Birch Blvd" }
+        ];
+    </script>
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto p-8">
@@ -20,7 +29,23 @@
                     </tr>
                 </thead>
                 <tbody class="text-gray-700">
-                    
+                    <script>
+                        employees.forEach((employee, index) => {
+                            document.write(`
+                                <tr class="bg-gray-100">
+                                    <td class="py-3 px-4">${employee.name}</td>
+                                    <td class="py-3 px-4">${employee.title}</td>
+                                    <td class="py-3 px-4">${employee.department}</td>
+                                    <td class="py-3 px-4">${employee.email}</td>
+                                    <td class="py-3 px-4">
+                                        <button onclick="openModal(${index})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            View Info
+                                        </button>
+                                    </td>
+                                </tr>
+                            `);
+                        });
+                    </script>
                 </tbody>
             </table>
         </div>
