@@ -4,6 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinks R Us HR</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function validateForm(event) {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            if (!username || !password) {
+                event.preventDefault();
+                alert("Please fill out both fields.");
+            } else {
+                window.location.href = "employee_list.html";
+            }
+        }
+    </script>
 </head>
 <body class="bg-gray-100 h-screen flex justify-center items-center">
     <div class="w-full max-w-xs">
