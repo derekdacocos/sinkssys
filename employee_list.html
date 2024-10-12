@@ -12,6 +12,21 @@
             { name: "Emily Davis", title: "Accountant", department: "Finance", email: "emily.davis@gmail.com", phone: "555-4321", address: "101 Maple St" },
             { name: "Michael Brown", title: "Software Developer", department: "IT", email: "michaelbrown@gmail.com", phone: "555-0987", address: "202 Birch Blvd" }
         ];
+
+        function openModal(index) {
+            const employee = employees[index];
+            document.getElementById('modal-name').innerText = employee.name;
+            document.getElementById('modal-title').innerText = employee.title;
+            document.getElementById('modal-department').innerText = employee.department;
+            document.getElementById('modal-email').innerText = employee.email;
+            document.getElementById('modal-phone').innerText = employee.phone;
+            document.getElementById('modal-address').innerText = employee.address;
+            document.getElementById('employee-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('employee-modal').classList.add('hidden');
+        }
     </script>
 </head>
 <body class="bg-gray-100">
@@ -48,6 +63,22 @@
                     </script>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div id="employee-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center">
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg max-w-lg w-full">
+            <div class="p-4">
+                <h2 class="text-2xl font-bold mb-4" id="modal-name"></h2>
+                <p><strong>Job Title:</strong> <span id="modal-title"></span></p>
+                <p><strong>Department:</strong> <span id="modal-department"></span></p>
+                <p><strong>Email:</strong> <span id="modal-email"></span></p>
+                <p><strong>Phone:</strong> <span id="modal-phone"></span></p>
+                <p><strong>Address:</strong> <span id="modal-address"></span></p>
+            </div>
+            <div class="p-4 border-t text-right">
+                <button onclick="closeModal()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
+            </div>
         </div>
     </div>
 </body>
